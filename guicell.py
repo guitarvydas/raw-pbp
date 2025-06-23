@@ -4,7 +4,6 @@ from tkinter import ttk
 class EditableField:
     def __init__(self, parent=None, on_edit_callback=None):
         self.on_edit_callback = on_edit_callback
-        self._updating_from_code = False  # Flag to prevent callback during display()
         
         # Create window if no parent provided
         if parent is None:
@@ -34,30 +33,22 @@ class EditableField:
         self.entry.bind('<FocusOut>', self._on_focus_out)
     
     def _on_change(self, *args):
-        if not self._updating_from_code and self.on_edit_callback:
-            self.on_edit_callback()
+        self.on_edit_callback()
     
     def _on_enter(self, event):
-        if not self._updating_from_code and self.on_edit_callback:
-            self.on_edit_callback()
+        self.on_edit_callback()
         print (self.get_value ())
 
     
     def _on_focus_out(self, event):
-        if not self._updating_from_code and self.on_edit_callback:
-            self.on_edit_callback()
+        self.on_edit_callback()
         print (self.get_value ())
     
     def display(self, x):
-        self._updating_from_code = True
         self.value_var.set(str(x))
-        self._updating_from_code = False
     
     def get_value(self):
         return self.value_var.get()
-    
-    def set_on_edit_callback(self, callback):
-        self.on_edit_callback = callback
     
     def run(self):
         if self.root:
