@@ -1,14 +1,17 @@
 import tkinter as tk
 from tkinter import ttk
 
-class EditableField:
-    def __init__(self, parent=None, on_user_edit_callback=None):
+class EditableTextWidget:
+    def __init__(self, parent=None, on_user_edit_callback=None, title=None):
         self.on_user_edit_callback = on_user_edit_callback
         
         # Create window if no parent provided
         if parent is None:
             self.root = tk.Tk()
-            self.root.title("Editable Field")
+            if title:
+                self.root.title (title)
+            else:
+                self.root.title("Editable Field")
             self.root.geometry("300x100")
             parent = self.root
         else:
@@ -55,16 +58,16 @@ if __name__ == "__main__":
         
     # User-supplied on_user_edit function
     def on_user_edit():
-        current_value = field.get_value()
+        current_value = widgetA.get_value()
         print (f'user entered {current_value}')
-        field.display (current_value)
+        widgetA.display (current_value)
         send (current_value)
     
-    # Create the field with the callback
-    field = EditableField(on_user_edit_callback=on_user_edit)
+    # Create the widget with the callback
+    widgetA = EditableTextWidget(on_user_edit_callback=on_user_edit,title="Widget A")
     
     # Example of programmatically setting values
-    field.display("1")
+    widgetA.display("A")
     
     # Start the GUI
-    field.run()
+    widgetA.run()
