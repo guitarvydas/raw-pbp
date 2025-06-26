@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Page-1",
+    "children": [
+      {
+        "name": "GUI A",
+        "id": 4
+      }
+    ],
+    "connections": [
+      {
+        "dir": 2,
+        "source_port": "#",
+        "target_port": "#",
+        "source": {
+          "name": "GUI A",
+          "id": 4
+        }
+      }
+    ],
+    "file": "etw-tester.drawio"
+  }
+]

@@ -426,7 +426,7 @@ def get_component_instance (reg,full_name,owner):      #line 448
                 return  None                           #line 459
             else:                                      #line 460
                 instance_name = generate_instance_name ( owner, template_name)#line 461
-                instance =  template.instantiator ( reg, owner, instance_name, template.template_data, "")#line 462
+a                instance =  template.instantiator ( reg, owner, instance_name, template.template_data, "")#line 462
                 return  instance                       #line 463#line 464
         else:                                          #line 465
             load_error ( str( "Registry Error (B): Can't find component /") +  str( template_name) +  "/"  )#line 466
