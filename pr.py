@@ -16,7 +16,7 @@ def handler (eh, msg):
     # the mevent handler for Prints
     # the unique instance for a given Print is given by the "eh" data structure (like "self" in OO)
     if msg.port == "display":
-        print (msg.datum.v, file=sys.stderr)
+        print (f'{eh.name}: {msg.datum.v}', file=sys.stderr)
     else:
         # sending a mevent causes the mevent to be queued at on the output queue of the topmost Part that contains
         # this widget

@@ -17,6 +17,9 @@ def handler (eh, msg):
     # the unique instance for a given Cell is given by the "eh" data structure (like "self" in OO)
     if msg.port == "edit":
         zd.send (eh, "display", msg.datum.v, msg)
+        zd.send (eh, "edit", msg.datum.v, msg)
+    elif msg.port == "update":
+        zd.send (eh, "display", msg.datum.v, msg)
     else:
         # sending a mevent causes the mevent to be queued at on the output queue of the topmost Part that contains
         # this widget

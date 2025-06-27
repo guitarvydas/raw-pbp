@@ -77,7 +77,6 @@ zd.register_component ( palette, zd.mkTemplate ( top_level_container ["name"], t
 # install widget component
 pr.install (palette)
 cell.install (palette)
-print (palette.templates.keys ())
 top = zd.start_bare (part_name='main', palette=palette, env=env)
 zd.inject_mevent (top, "edit1", "hello")
 zd.inject_mevent (top, "edit2", "world")
