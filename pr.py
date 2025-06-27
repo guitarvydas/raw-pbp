@@ -4,19 +4,19 @@ import kernel0d as zd
 
 def install (reg):
     # install this Leaf component template into the palette of templates that could be instantiated
-    zd.register_component (reg, zd.mkTemplate ( "Cell", None, instantiator))
+    zd.register_component (reg, zd.mkTemplate ( "Print", None, instantiator))
 
 def instantiator (reg, owner, name, template_data, arg):
-    # instantiate one, unique Cell
-    # each separate instance of Cells in a system will call this instantiator once to create a unique Cell part
-    name_with_id = zd.gensymbol ("Cell")
+    # instantiate one, unique Print
+    # each separate instance of Prints in a system will call this instantiator once to create a unique Print part
+    name_with_id = zd.gensymbol ("Print")
     return zd.make_leaf ( name_with_id, owner, None, arg, handler)
 
 def handler (eh, msg):
-    # the mevent handler for Cells
-    # the unique instance for a given Cell is given by the "eh" data structure (like "self" in OO)
-    if msg.port == "edit":
-        zd.send (eh, "display", msg.datum.v, msg)
+    # the mevent handler for Prints
+    # the unique instance for a given Print is given by the "eh" data structure (like "self" in OO)
+    if msg.port == "display":
+        print (msg.datum.v, file=sys.stderr)
     else:
         # sending a mevent causes the mevent to be queued at on the output queue of the topmost Part that contains
         # this widget
