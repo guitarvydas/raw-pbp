@@ -1,22 +1,148 @@
-{
-"name": "main",
-"children": [
-{"name": "Cell","id": 5},
-{"name": "Print","id": 11},
-{"name": "Cell","id": 14},
-{"name": "Print","id": 20}
-],
-"connections": [
-{"dir": 0,"source_port": "edit2","target_port": "edit","target": {"name": "Cell","id": 14}},
-{"dir": 0,"source_port": "edit1","target_port": "edit","target": {"name": "Cell","id": 5}},
-{"dir": 1,"source_port": "display","target_port": "display","source": {"name": "Cell","id": 5},"target": {"name": "Print","id": 11}},
-{"dir": 1,"source_port": "display","target_port": "display","source": {"name": "Cell","id": 14},"target": {"name": "Print","id": 20}},
-{"dir": 1,"source_port": "edit","target_port": "update","source": {"name": "Cell","id": 5},"target": {"name": "Cell","id": 14}},
-{"dir": 1,"source_port": "edit","target_port": "update","source": {"name": "Cell","id": 14},"target": {"name": "Cell","id": 5}},
-{"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Cell","id": 14}},
-{"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Print","id": 20}},
-{"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Cell","id": 5}},
-{"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Print","id": 11}}
-],
-"file": "cells.drawio"
-}
+  {
+    "name": "main",
+    "children": [
+      {
+        "name": "Cell",
+        "id": 6
+      },
+      {
+        "name": "Print",
+        "id": 12
+      },
+      {
+        "name": "Cell",
+        "id": 15
+      },
+      {
+        "name": "Print",
+        "id": 21
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "edit2",
+        "target_port": "edit",
+        "target": {
+          "name": "Cell",
+          "id": 15
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "edit1",
+        "target_port": "edit",
+        "target": {
+          "name": "Cell",
+          "id": 6
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "display",
+        "target_port": "display",
+        "source": {
+          "name": "Cell",
+          "id": 6
+        },
+        "target": {
+          "name": "Print",
+          "id": 12
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "display",
+        "target_port": "display",
+        "source": {
+          "name": "Cell",
+          "id": 15
+        },
+        "target": {
+          "name": "Print",
+          "id": 21
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "edit",
+        "target_port": "update",
+        "source": {
+          "name": "Cell",
+          "id": 6
+        },
+        "target": {
+          "name": "Cell",
+          "id": 15
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "edit",
+        "target_port": "update",
+        "source": {
+          "name": "Cell",
+          "id": 15
+        },
+        "target": {
+          "name": "Cell",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "#",
+        "target_port": "#",
+        "source": {
+          "name": "Cell",
+          "id": 15
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "#",
+        "target_port": "#",
+        "source": {
+          "name": "Print",
+          "id": 21
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "#",
+        "target_port": "#",
+        "source": {
+          "name": "Cell",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "#",
+        "target_port": "#",
+        "source": {
+          "name": "Print",
+          "id": 12
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "display",
+        "target_port": "",
+        "source": {
+          "name": "Cell",
+          "id": 15
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "display",
+        "target_port": "",
+        "source": {
+          "name": "Cell",
+          "id": 6
+        }
+      }
+    ],
+    "file": "cells.drawio"
+  }
