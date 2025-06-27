@@ -43,154 +43,30 @@ import cell
 # Top Level Container part for this project - manual version
 # (this is usually built by using the diagram compiler 'das2json' and loading the .json into the kernel)
 reg = zd.make_component_registry () # make an empty template palette ("registry")
-top_level_container =   {
-    "name": "main",
-    "children": [
-        {
-            "name": "Cell",
-            "id": 6
-        },
-        {
-            "name": "Print",
-            "id": 12
-        },
-        {
-            "name": "Cell",
-            "id": 15
-        },
-        {
-            "name": "Print",
-            "id": 21
-        }
-    ],
-    "connections": [
-        {
-            "dir": 0,
-            "source_port": "edit2",
-            "target_port": "edit",
-            "target": {
-                "name": "Cell",
-                "id": 15
-            }
-        },
-        {
-            "dir": 0,
-            "source_port": "edit1",
-            "target_port": "edit",
-            "target": {
-                "name": "Cell",
-                "id": 6
-            }
-        },
-        {
-            "dir": 1,
-            "source_port": "display",
-            "target_port": "display",
-            "source": {
-                "name": "Cell",
-                "id": 6
-            },
-            "target": {
-                "name": "Print",
-                "id": 12
-            }
-        },
-        {
-            "dir": 1,
-            "source_port": "display",
-            "target_port": "display",
-            "source": {
-                "name": "Cell",
-                "id": 15
-            },
-            "target": {
-                "name": "Print",
-                "id": 21
-            }
-        },
-        {
-            "dir": 1,
-            "source_port": "edit",
-            "target_port": "update",
-            "source": {
-                "name": "Cell",
-                "id": 6
-            },
-            "target": {
-                "name": "Cell",
-                "id": 15
-            }
-        },
-        {
-            "dir": 1,
-            "source_port": "edit",
-            "target_port": "update",
-            "source": {
-                "name": "Cell",
-                "id": 15
-            },
-            "target": {
-                "name": "Cell",
-                "id": 6
-            }
-        },
-        {
-            "dir": 2,
-            "source_port": "#",
-            "target_port": "#",
-            "source": {
-                "name": "Cell",
-                "id": 15
-            }
-        },
-        {
-            "dir": 2,
-            "source_port": "#",
-            "target_port": "#",
-            "source": {
-                "name": "Print",
-                "id": 21
-            }
-        },
-        {
-            "dir": 2,
-            "source_port": "#",
-            "target_port": "#",
-            "source": {
-                "name": "Cell",
-                "id": 6
-            }
-        },
-        {
-            "dir": 2,
-            "source_port": "#",
-            "target_port": "#",
-            "source": {
-                "name": "Print",
-                "id": 12
-            }
-        },
-        {
-            "dir": 2,
-            "source_port": "display",
-            "target_port": "",
-            "source": {
-                "name": "Cell",
-                "id": 15
-            }
-        },
-        {
-            "dir": 2,
-            "source_port": "display",
-            "target_port": "",
-            "source": {
-                "name": "Cell",
-                "id": 6
-            }
-        }
-    ],
-    "file": "cells.drawio"
-}
+top_level_container =     { "name": "main",
+                            "children": [
+                                {"name": "Cell", "id": 6},
+                                {"name": "Print","id": 12},
+                                {"name": "Cell","id": 15},
+                                {"name": "Print","id": 21}
+                            ],
+                            "connections": [
+                                {"dir": 0,"source_port": "edit2","target_port": "edit","target": {"name": "Cell","id": 15}},
+                                {"dir": 0,"source_port": "edit1","target_port": "edit","target": {"name": "Cell","id": 6}},
+                                {"dir": 1,"source_port": "display","target_port": "display","source": {"name": "Cell","id": 6},"target": {"name": "Print","id": 12}},
+                                {"dir": 1,"source_port": "display","target_port": "display","source": {"name": "Cell","id": 15},"target": {"name": "Print","id": 21}},
+                                {"dir": 1,"source_port": "edit","target_port": "update","source": {"name": "Cell","id": 6},"target": {"name": "Cell","id": 15}},
+                                {"dir": 1,"source_port": "edit","target_port": "update","source": {"name": "Cell","id": 15},"target": {"name": "Cell","id": 6}},
+                                {"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Cell","id": 15}},
+                                {"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Print","id": 21}},
+                                {"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Cell","id": 6}},
+                                {"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Print","id": 12}},
+                                {"dir": 2,"source_port": "display","target_port": "","source": {"name": "Cell","id": 15}},
+                                {"dir": 2,"source_port": "display","target_port": "","source": {"name": "Cell","id": 6}}
+                            ],
+                            "file": "cells.drawio"
+                           }
+
 
 
 projectPath = "."
