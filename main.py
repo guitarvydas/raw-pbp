@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(0, 'pbp/kernel')
 import kernel0d as zd
-import etw
+import pr
 import cell
 
 
@@ -43,91 +43,41 @@ import cell
 # Top Level Container part for this project - manual version
 # (this is usually built by using the diagram compiler 'das2json' and loading the .json into the kernel)
 reg = zd.make_component_registry () # make an empty template palette ("registry")
-top_level_container =  {
-    "name": "main",
-    "children": [
-        {
-            "name": "Editable Text Widget",
-            "id": 5
-        },
-        {
-            "name": "Cell",
-            "id": 9
-        }
-    ],
-    "connections": [
-        {
-            "dir": 0,
-            "source_port": "",
-            "target_port": "begin",
-            "target": {
-                "name": "Cell",
-                "id": 9
-            }
-        },
-        {
-            "dir": 1,
-            "source_port": "display",
-            "target_port": "display",
-            "source": {
-                "name": "Cell",
-                "id": 9
-            },
-            "target": {
-                "name": "Editable Text Widget",
-                "id": 5
-            }
-        },
-        {
-            "dir": 1,
-            "source_port": "edit",
-            "target_port": "edit",
-            "source": {
-                "name": "Editable Text Widget",
-                "id": 5
-            },
-            "target": {
-                "name": "Cell",
-                "id": 9
-            }
-        },
-        {
-            "dir": 2,
-            "source_port": "#",
-            "target_port": "#",
-            "source": {
-                "name": "Editable Text Widget",
-                "id": 5
-            }
-        },
-        {
-            "dir": 2,
-            "source_port": "display",
-            "target_port": "",
-            "source": {
-                "name": "Cell",
-                "id": 9
-            }
-        },
-        {
-            "dir": 2,
-            "source_port": "#",
-            "target_port": "#",
-            "source": {
-                "name": "Cell",
-                "id": 9
-            }
-        }
-    ],
-    "file": "etw-tester.drawio"
-}
+top_level_container =     { "name": "main",
+                            "children": [
+                                {"name": "Cell", "id": 6},
+                                {"name": "Print","id": 12},
+                                {"name": "Cell","id": 15},
+                                {"name": "Print","id": 21}
+                            ],
+                            "connections": [
+                                {"dir": 0,"source_port": "edit2","target_port": "edit","target": {"name": "Cell","id": 15}},
+                                {"dir": 0,"source_port": "edit1","target_port": "edit","target": {"name": "Cell","id": 6}},
+                                {"dir": 1,"source_port": "display","target_port": "display","source": {"name": "Cell","id": 6},"target": {"name": "Print","id": 12}},
+                                {"dir": 1,"source_port": "display","target_port": "display","source": {"name": "Cell","id": 15},"target": {"name": "Print","id": 21}},
+                                {"dir": 1,"source_port": "edit","target_port": "update","source": {"name": "Cell","id": 6},"target": {"name": "Cell","id": 15}},
+                                {"dir": 1,"source_port": "edit","target_port": "update","source": {"name": "Cell","id": 15},"target": {"name": "Cell","id": 6}},
+                                {"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Cell","id": 15}},
+                                {"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Print","id": 21}},
+                                {"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Cell","id": 6}},
+                                {"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Print","id": 12}},
+                                {"dir": 2,"source_port": "display","target_port": "","source": {"name": "Cell","id": 15}},
+                                {"dir": 2,"source_port": "display","target_port": "","source": {"name": "Cell","id": 6}}
+                            ],
+                            "file": "cells.drawio"
+                           }
+
+
 
 projectPath = "."
 diagrams = []
 [palette, env] = zd.initialize_from_files (projectPath, diagrams)
 # then insert the top level Part into the palette ("registry") 
 zd.register_component ( palette, zd.mkTemplate ( top_level_container ["name"], top_level_container, zd.container_instantiator))
-# install widget comopnent
-etw.install (palette)
-zd.start (arg='', Part_name='main', palette=palette, env=env)
+# install widget component
+pr.install (palette)
+cell.install (palette)
+top = zd.start_bare (part_name='main', palette=palette, env=env)
+zd.inject_mevent (top, "edit1", "hello")
+zd.inject_mevent (top, "edit2", "world")
 
