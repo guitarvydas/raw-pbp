@@ -129,5 +129,7 @@ diagrams = []
 zd.register_component ( palette, zd.mkTemplate ( top_level_container ["name"], top_level_container, zd.container_instantiator))
 # install widget comopnent
 etw.install (palette)
+cell.install (palette)
+print (palette.templates.keys ())
 zd.start (arg='', Part_name='main', palette=palette, env=env)
 

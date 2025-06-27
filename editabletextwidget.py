@@ -46,3 +46,8 @@ class EditableTextWidget:
         if self.root:
             self.root.mainloop()
             
+
+
+
+
+            

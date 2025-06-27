@@ -1,4 +1,4 @@
 all: manual
 
 manual:
-	python3 guicell.py . - "" "main" []
+	python3 main.py . - "" "main" []
