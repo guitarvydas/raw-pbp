@@ -49,8 +49,10 @@ def widget_instantiator (reg, owner, name, template_data, arg):
     # instantiate one, unique Editable Text Widget
     # each separate instance of Editable Text Widgets in a system will call this instantiator once to create a unique widget
     name_with_id = zd.gensymbol ("Editable Text Widget")
-    widget = etw.EditableTextWidget(title=name)
-    return zd.make_leaf ( name_with_id, owner, None, widget, widget_handler)
+    widget = etw.EditableTextWidget(title=name_with_id)
+    widget.display (name_with_id)
+    widget.run ()
+    return zd.make_leaf ( name_with_id, owner, widget, arg, widget_handler)
 
 def widget_handler (eh, msg):
     # the mevent handler for Editable Text Widgets
@@ -74,7 +76,8 @@ reg = zd.make_component_registry () # make an empty template palette ("registry"
 top_level_container = {"name": "main",
                        "children": [ { "name": "Editable Text Widget", "id": 4 }],
                        "connections": [
-                           { "dir": 2, "source_port": "#", "target_port": "#", "source": { "name": "Editable Text Widget", "id": 4}}
+                           {"dir": 0,"source_port": "","target_port": "display","target": {"name": "Editable Text Widget","id": 4 }},
+                           {"dir": 2,"source_port": "#","target_port": "#","source": {"name": "Editable Text Widget","id": 4}}
                        ],
                        "file": "etw-tester.drawio"
                        }
@@ -87,19 +90,4 @@ zd.register_component ( palette, zd.mkTemplate ( top_level_container ["name"], t
 # install widget comopnent
 widget_install (palette)
 zd.start (arg='', Part_name='main', palette=palette, env=env)
-
-# try:
-#     projectPath = "."
-#     diagrams = []
-#     [palette, env] = zd.initialize_from_files (projectPath, diagrams)
-#     widget_install (palette)
-#     zd.start (arg=sys.argv[2], Part_name=sys.argv[3], palette=palette, env=env)
-# except Exception as e:
-#     _, _, tb = sys.exc_info()
-#     while tb.tb_next:
-#         tb = tb.tb_next
-#     frame = tb.tb_frame
-#     filename = frame.f_code.co_filename
-#     line_number = tb.tb_lineno
-#     print(f"\n\n\n*** {type(e).__name__} at {filename}:{line_number}: {e}", file=sys.stderr)
         

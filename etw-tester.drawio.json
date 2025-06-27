@@ -1,19 +1,28 @@
 [
   {
-    "name": "Page-1",
+    "name": "main",
     "children": [
       {
-        "name": "GUI A",
+        "name": "Editable Text Widget",
         "id": 4
       }
     ],
     "connections": [
       {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "display",
+        "target": {
+          "name": "Editable Text Widget",
+          "id": 4
+        }
+      },
+      {
         "dir": 2,
         "source_port": "#",
         "target_port": "#",
         "source": {
-          "name": "GUI A",
+          "name": "Editable Text Widget",
           "id": 4
         }
       }

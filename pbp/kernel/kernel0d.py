@@ -166,7 +166,6 @@ def container_instantiator (reg,owner,container_name,desc,arg):#line 161
     children_by_id = {}
     # not strictly necessary, but, we can remove 1 runtime lookup by “compiling it out“ here#line 165
     # collect children                                 #line 166
-    print (desc)
     for child_desc in  desc [ "children"]:             #line 167
         child_instance = get_component_instance ( reg, child_desc [ "name"], container)#line 168
         children.append ( child_instance)              #line 169
