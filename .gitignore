@@ -3,3 +3,10 @@ temp-*
 
 .$cells.drawio.bkp
 __pychace__/*
+
+pbp/kernel/__pycache__/
+
+__pycache__/
+
+cells.drawio.json
+
